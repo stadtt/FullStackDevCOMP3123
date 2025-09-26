@@ -4,6 +4,8 @@ const SERVER_PORT = process.env.port || 3000;
 
 const app = express();
 
+app.use(express.static("public"));
+
 
 app.get("/hello", (req,res) => {
 
@@ -27,15 +29,19 @@ app.get("/user", (req,res)=>{
 
 app.post("/user/:firstname/:lastname", (req,res)=>{
    
-    console.log(req.params);
-    const firstname = req.params.firstname; 
-    const lastname = req.params.lastname;
+    // console.log(req.params);
+    // const firstname = req.params.firstname; 
+    // const lastname = req.params.lastname;
 
-    res.json({
+    // res.json({
 
-        firstname,
-        lastname,
-    });
+    //     firstname,
+    //     lastname,
+    // });
+
+      const { firstname, lastname } = req.params;
+  res.json({ firstname, lastname });
+
     
 });
 app.post("/user", (req,res)=>{
@@ -49,6 +55,10 @@ app.post("/user", (req,res)=>{
 
         array
     });
+
+//     const users = Array.isArray(req.body) ? req.body : [];
+//   res.json(users);
+
     
 });
 

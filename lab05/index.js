@@ -1,33 +1,22 @@
 const express = require('express');
+const path = require('path');  // you need this to send html files
 const app = express();
 const userRouter = require('./routes/users');
 
+// Mount User Router
+app.use('/api/v1/user', userRouter);
 
-// Add User Router
-app.use('api/v1/user', userRouter);
-
-/*
-- Create new html file name home.html 
-- add <h1> tag with message "Welcome to ExpressJs Tutorial"
-- Return home.html page to client
-*/
-
-app.get("/home", (req, res) => {
-  res.sendFile(path.join(__dirname,"routes", "home.html"));
+// Serve home.html at /api/v1/home
+app.get('/api/v1/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'routes', 'home.html'));
 });
 
-/*
-Add error handling middleware to handle below error
-- Return 500 page with message "Server Error"
-*/
+// Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack); // logs the error
-  res.status(500).send("Server Error");
+  res.status(500).send('Server Error');
 });
 
-
-
-
-app.listen(process.env.port || 8081);
-
-console.log('Web Server is listening at port '+ (process.env.port || 8081));
+const PORT = process.env.port || 3000;
+app.listen(PORT, () => {
+  console.log(`Web Server is listening at port ${PORT}`);
+});

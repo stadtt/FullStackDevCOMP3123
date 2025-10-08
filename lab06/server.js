@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const noteRoutes = require("../lab06/routes/NoteRoutes.js")
 
 // TODO - Update your mongoDB Atals Url here to Connect to the database
-const DB_URL = process.env.DB_URL || "mongodb+srv://haishaffaq_db_user:FTTpTirBXfRph3gV@cluster0.tyglb6s.mongodb.net/Notes?retryWrites=true&w=majority&appName=Cluster0"
+const DB_URL = process.env.DB_URL || " UPDATE UR OWN SERVER"
 const PORT = process.env.PORT || 8081;
 
 const app = express();

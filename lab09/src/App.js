@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import College from './components/college/college';
-import Student from './components/college/student/student';
-import StudentID from './components/college/student/studentID';
+import Student from './components/student/student';
+import StudentID from './components/student/studentID';
 import Title from './components/title/title';
 
 function App() {
